@@ -1,0 +1,68 @@
+/*------------------------------------------------------------------------------
+    CSS Document (http://www.w3.org/Style/CSS/)
+
+    project:    project name
+    created:    2012-01-04
+    author:     johdoe
+                
+----------------------------------------------------------------------------- */
+
+
+/*  =FRAMEWORK CSS (OOCSS and more...)
+----------------------------------------------------------------------------- */
+@import "fw.css";
+
+
+/*  =PRINT
+----------------------------------------------------------------------------- */
+@media print {
+    
+}
+
+
+/*  =RESET
+----------------------------------------------------------------------------- */
+* { margin:0; padding:0; vertical-align:baseline; }
+
+body {
+    font-family:Arial, Verdana, Helvetica, sans-serif;
+    font-size:68.8%; /* :INFO:1em = 11px */
+    margin:0;
+    height:100%;
+    color:#000;
+    background:#fff;
+}
+
+
+/* CONTENT */
+.content {
+    background: url(../img/data/bricks.jpg) 0 0 repeat;
+}
+
+/* COLUMNS */
+.column {
+    top: 0;
+    position: fixed;
+    min-width: 460px;
+    /*box-shadow: -15px 0 25px rgba(0, 0, 0, 0.5);*/
+    background: url(../img/data/tree-2.png) 0 0 repeat-y;
+}
+.column-left {
+    left: 0;
+    background-position: right 0;
+}
+.column-right {
+    right: 0;
+}
+.column .text {
+    color: red;
+    background: white;
+}
+.column .bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0
+}
+
+
+/* END */
