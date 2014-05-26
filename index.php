@@ -12,18 +12,21 @@
     </div>
 
 
+    <div class="player"></div>
+
+    <div class="columns-container">
+        <div class="column column-left">
+            <div class="text top">TOP</div>
+            <div class="text bottom">BOTTOM</div>
+        </div>
 
 
-    <div class="column column-left">
-        <div class="text top">TOP</div>
-        <div class="text bottom">BOTTOM</div>
+        <div class="column column-right">
+            <div class="text top">TOP</div>
+            <div class="text bottom">BOTTOM</div>
+        </div>
     </div>
 
-
-    <div class="column column-right">
-        <div class="text top">TOP</div>
-        <div class="text bottom">BOTTOM</div>
-    </div>
 
     <?php include('inc/scripts.inc.php'); ?>
 </body>
