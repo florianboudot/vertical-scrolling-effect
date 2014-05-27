@@ -42,8 +42,8 @@ EasingFunctions = {
     easeInOutQuint: function (t) { return t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t }
 };
 
-/*  =EXAMPLE
------------------------------------------------------------------------------ */
+
+/* VERTICAL SCROLLING EFFECT */
 pm.verticalScrollingEffect = function() {
     // elements
     var $columns = $('.column');
@@ -79,26 +79,31 @@ pm.verticalScrollingEffect = function() {
         });
     };
 
+    // zoom effect to move the elements away from the player
     var scaleColumnsContainer = function (event) {
         // zero begins at halfscreen
         var cursor_x = (event.pageX - screen_half);
         var scale_factor = cursor_x > 0 ? ((cursor_x / screen_half)) : 0;
 
-        scale_factor = EasingFunctions.easeInOutQuart(scale_factor)/3 + 1; // easing
-//        scale_factor = (scale_factor / 3) + 1; // easing linear
+        if(scale_factor > 0){ // perfs
+            scale_factor = EasingFunctions.easeInOutQuart(scale_factor)/3 + 1; // easing
 
-        // set value to the global object
-        transform.scale = scale_factor;
+            // set value to the global object
+            transform.scale = scale_factor;
 
-        $columns_container.css({
-            'transform': 'scale(' + transform.scale + ')'
-        });
+            $columns_container.css({
+                'transform': 'scale(' + transform.scale + ')'
+            });
+        }
     };
 
 
     // bind events
-
-    $window.on('resize', setValues);
+    var TIMEOUT_RESIZE = null;
+    $window.on('resize', function(){
+        clearTimeout(TIMEOUT_RESIZE);
+        TIMEOUT_RESIZE = setTimeout(setValues, 100);
+    });
     $window.on('scroll', moveColsVertically);
     $body.on('mousemove', scaleColumnsContainer)
 };
