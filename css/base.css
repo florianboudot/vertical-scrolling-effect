@@ -46,7 +46,9 @@ body {
     top: 0;
     bottom: 0;
     right: 0;
-    -webkit-transform-origin:0 50%;
+            transform-origin:20% 60%;
+       -moz-transform-origin:20% 60%;
+    -webkit-transform-origin:20% 60%;
 }
 .column {
     top: 0;
